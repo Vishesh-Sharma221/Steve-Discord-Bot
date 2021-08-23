@@ -1,5 +1,3 @@
-import traceback
-import sys
 import discord
 import random
 import praw 
@@ -10,7 +8,8 @@ from giphy_client.rest import ApiException
 from discord.ext import commands, tasks
 from itertools import cycle
 from discord.utils import get
-import utils
+import randfacts
+import pyjokes
 
 
 from initials import *
@@ -181,6 +180,16 @@ async def hi(ctx):
 @bot.command() 
 async def bye(ctx):
     await ctx.send('Goodbye ! Take care :) :wave:')
+
+@bot.command()
+async def facts(ctx):
+    x = randfacts.get_fact()
+    await ctx.send(f"_{x}_")
+
+@bot.command()
+async def jokes(ctx):
+    x = pyjokes.get_joke()
+    await ctx.send(f"_{x}_")
 
 @bot.command()
 async def gif(ctx,*,q="random"):

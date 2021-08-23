@@ -1,10 +1,9 @@
 import discord
-import asyncio
 from discord.ext import commands
 
 
 class help(commands.Cog):
-    def __init__(self, bot, *args, **kwargs):
+    def __init__(self, bot):
         self.bot = bot
 
     @commands.command()
@@ -45,39 +44,9 @@ class help(commands.Cog):
         embed.add_field(
             name="**Get any gif from giphy**", value="`s!gif {the gif u want}`", inline=True)
         embed.add_field(
-            name="**Economy Commands**", value="`Do  s!help_eco for economy commands help`", inline=True)
+            name="**Jokes/facts**", value="`s!jokes` and `s!facts`", inline=True)
         embed.set_thumbnail(url=ctx.bot.user.avatar_url)
         embed.set_footer(text="Have a nice one :)")
-
-        await member.send(embed=embed)
-
-    @commands.command()
-    async def help_eco(self,ctx):
-        member = ctx.author
-        await ctx.message.add_reaction("<:tick:860371854689959966>")
-
-        embed = discord.Embed(
-            title="**ECONOMY COMMANDS**",
-            colour=discord.Colour.blue(),
-        )
-        embed.add_field(
-            name="s!bal", value="`Shows your currennt Balance`")
-        embed.add_field(
-            name="s!beg", value="`Beg like a God damn Begger `")
-        embed.add_field(
-            name="s!with `{amount}`", value="`Withdraws the given amount from your Bank `")
-        embed.add_field(
-            name="s!dep `{amount}`", value="`Deposits the given amount to your Bank`")
-        embed.add_field(
-            name="s!send `{amount}` `{user}`", value="`Sends the given amount of money to the User Mentioned`")
-        embed.add_field(
-            name="s!rob `{user}`", value="`Rob the User Mentioned`")
-        embed.add_field(
-            name="s!slots `{amoount}`", value="`Bet some money on the slots, try your luck!`")
-        embed.add_field(
-            name="s!daily", value="`Vote the bot on top.gg to get your Daily 1000 coins`")
-        embed.add_field(
-            name="s!shop", value="`Buy some stuff from the shop!`")
 
         await member.send(embed=embed)
 

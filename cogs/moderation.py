@@ -29,7 +29,7 @@ class ModCog(commands.Cog):
     async def kick(self,ctx,member:discord.Member, reason = None):
         if (ctx.message.author.permissions_in(ctx.message.channel).kick_members):
             await member.kick(reason=reason)
-            await ctx.send(f"Succesfully Kicked {member}! **REASON**{reason}")
+            await ctx.send(f"Succesfully Kicked {member}! **REASON** : {reason}")
             await asyncio.sleep(10)
             await msg.delete()
         else:
@@ -39,7 +39,7 @@ class ModCog(commands.Cog):
     async def ban(self,ctx,member:discord.Member, reason = None):
         if (ctx.message.author.permissions_in(ctx.message.channel).ban_members):
             await member.ban(reason=reason)
-            await ctx.send(f"Succesfully banned {member}! **REASON**{reason}")
+            await ctx.send(f"Succesfully banned {member}! **REASON** : {reason}")
             await asyncio.sleep(10)
             await msg.delete()
         else:
